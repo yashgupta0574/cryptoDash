@@ -3,10 +3,10 @@ import Carousel from "./Carousel";
 
 const useStyles = makeStyles((theme) => ({
   banner: {
-    backgroundImage: "url(./banner.jpg)",
+    backgroundImage: "url(./banner1.jpg)",
   },
   bannerContent: {
-    height: 400,
+    height: 350,
     display: "flex",
     flexDirection: "column",
     paddingTop: 25,
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tagline: {
     display: "flex",
-    height: "40%",
+    height: "50%",
     flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
@@ -44,9 +44,9 @@ function Banner() {
             CryptoDash
           </Typography>
           <Typography
-            variant="subtitle2"
+            variant="h6"
             style={{
-              color: "darkgrey",
+              color: "white",
               textTransform: "capitalize",
               fontFamily: "Montserrat",
             }}
