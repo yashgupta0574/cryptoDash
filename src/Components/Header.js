@@ -17,10 +17,11 @@ import { CryptoState } from "../CryptoContext";
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "gold",
+    color: "green",
     fontFamily: "Montserrat",
     fontWeight: "bold",
     cursor: "pointer",
+    marginBottom: "10px",
   },
 }));
 
@@ -45,7 +46,7 @@ const Header = () => {
           <Toolbar>
             <Typography
               onClick={() => history.push(`/`)}
-              variant="h6"
+              variant="h4"
               className={classes.title}
             >
               CryptoDash
