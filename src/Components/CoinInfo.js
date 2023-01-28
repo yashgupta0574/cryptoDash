@@ -15,6 +15,7 @@ import { CryptoState } from "../CryptoContext";
 const CoinInfo = ({ coin }) => {
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
+  const [dataLabel, setdataLabel] = useState("-24 Hours-");
   const { currency } = CryptoState();
   const [flag, setflag] = useState(false);
 
@@ -49,7 +50,7 @@ const CoinInfo = ({ coin }) => {
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [days]);
+  }, [days, currency]);
 
   const darkTheme = createTheme({
     palette: {
@@ -59,7 +60,6 @@ const CoinInfo = ({ coin }) => {
       type: "dark",
     },
   });
-
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={classes.container}>
@@ -81,11 +81,13 @@ const CoinInfo = ({ coin }) => {
                       : `${date.getHours()}:${date.getMinutes()} AM`;
                   return days === 1 ? time : date.toLocaleDateString();
                 }),
-
                 datasets: [
                   {
                     data: historicData.map((coin) => coin[1]),
-                    label: `Price ( Past ${days} Days ) in ${currency}`,
+                    label: `Price ( Past ${dataLabel.substring(
+                      1,
+                      dataLabel.length - 1
+                    )} ) in ${currency}`,
                     borderColor: "#EEBC1D",
                   },
                 ],
@@ -111,6 +113,7 @@ const CoinInfo = ({ coin }) => {
                   key={day.value}
                   onClick={() => {
                     setDays(day.value);
+                    setdataLabel(JSON.stringify(day.label));
                     setflag(false);
                   }}
                   selected={day.value === days}

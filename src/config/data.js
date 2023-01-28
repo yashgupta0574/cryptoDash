@@ -16,7 +16,7 @@ export const chartDays = [
     value: 365 * 5 + 1,
   },
   {
-    label: "10 Years",
-    value: 365 * 15 + 2,
+    label: "All time",
+    value: 365 * 20 + 2,
   },
 ];
