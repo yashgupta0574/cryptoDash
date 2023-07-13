@@ -47,7 +47,7 @@ const Header = () => {
         <Container>
           <Toolbar>
             <Typography
-              onClick={() => history.push(`/cryptoDash`)}
+              onClick={() => history.push(`/`)}
               variant="h4"
               className={classes.title}
             >
